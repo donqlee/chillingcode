@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 
 import { maxWidth } from "styles/mixin";
 
-export const HeaderSection = () => {
+const HeaderSection = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
 
   return (
@@ -13,7 +13,7 @@ export const HeaderSection = () => {
       isMobile={isMobile}
     >
       <div className="header-content">
-        <div className="header-text">{`개발은 \n카페인과 함께`}</div>
+        <div className="header-text">{`개발은 \n칠링코드와 함께`}</div>
         <div
           className="header-img"
           style={{
@@ -45,7 +45,7 @@ const Container = styled.header<{ bgImg: string; isMobile: boolean }>`
     white-space: pre-line;
     color: #ffffff;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 45px;
     line-height: 56px;
     ${(props) =>
       props.isMobile &&
@@ -63,3 +63,5 @@ const Container = styled.header<{ bgImg: string; isMobile: boolean }>`
     height: ${(props) => (props.isMobile ? "150px" : "400px")};
   }
 `;
+
+export default HeaderSection;
