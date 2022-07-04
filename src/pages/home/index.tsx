@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { Navigation, Footer } from "components";
 import { HeaderSection } from "./components/HeaderSection";
+import { CampSection } from "./components/CampSection";
 import { ICamp } from "types/type";
 import { useEffect, useState } from "react";
 
@@ -16,12 +17,29 @@ const campMock: ICamp = {
   thumbnail: "https://cdn.comento.kr/images/pt/tmp/prefix_44UsYDVNuM.jpg",
 };
 const Home = () => {
+  const [popularCamps, setPopularCamps] = useState<ICamp[]>([]);
+  const [saleCamps, setSaleCamps] = useState<ICamp[]>([]);
+
+  useEffect(() => {
+    // TODO: 실서버 데이터로 변경
+    setPopularCamps([campMock, campMock, campMock, campMock]);
+    setSaleCamps([campMock, campMock, campMock, campMock]);
+  }, []);
   return (
-    <div>
+    <Container>
       <Navigation />
       <HeaderSection />
-    </div>
+      <CampSection title="인기 부트 캠프" camps={popularCamps} />
+
+      <CampSection title="특가 할인 캠프" camps={saleCamps} isHeadField />
+
+      <Footer />
+    </Container>
   );
 };
 
 export default Home;
+
+const Container = styled.div`
+  margin: 0 auto;
+`;
