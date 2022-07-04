@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { maxWidth } from "styles/mixin";
 
 const HeaderSection = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 680px)" });
 
   return (
     <Container

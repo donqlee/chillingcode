@@ -13,7 +13,7 @@ interface IProps {
 }
 const CampSection = ({ title, camps, isHeadField = false }: IProps) => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 480px)",
+    query: "(max-width: 680px)",
   });
 
   return (
