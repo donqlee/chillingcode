@@ -4,11 +4,13 @@ import fonts from "styles/fonts";
 import colors from "styles/colors";
 
 const Tags = ({ tags }: { tags: string[] }) => {
-  <Container>
-    {tags.map((tag, index) => (
-      <div key={index}>{tag}</div>
-    ))}
-  </Container>;
+  return (
+    <Container>
+      {tags.map((tag, index) => (
+        <div key={index}>{tag}</div>
+      ))}
+    </Container>
+  );
 };
 
 export default Tags;
