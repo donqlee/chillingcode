@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-import { Navigation, Footer } from "components";
-import { HeaderSection } from "./components/HeaderSection";
-import { CampSection } from "./components/CampSection";
-import { ICamp } from "types/type";
+import { Navigation, Footer, Padding } from "components";
+import {
+  CampSection,
+  HeaderSection,
+  HomeBanner,
+  CommunitySection,
+} from "./components";
+import { ICamp, ICommunity } from "types/type";
 import { useEffect, useState } from "react";
+import { maxWidth } from "styles/mixin";
 
 const campMock: ICamp = {
   id: 0,
@@ -16,23 +21,56 @@ const campMock: ICamp = {
   startDate: "2021-03-13",
   thumbnail: "https://cdn.comento.kr/images/pt/tmp/prefix_44UsYDVNuM.jpg",
 };
+const communityMock: ICommunity = {
+  id: 0,
+  tags: ["야호", "정말"],
+  title: "합격 메일 답장 어떻게 할까요?",
+  content: "고칠 부분이 있는지 봐주시면 감사하겠습니다!",
+  comments: [
+    {
+      profile: "https://cdn.comento.kr/images/pt/tmp/prefix_44UsYDVNuM.jpg",
+      content: "와우",
+      nickname: "멘토1234",
+    },
+    {
+      profile: "https://cdn.comento.kr/images/pt/tmp/prefix_44UsYDVNuM.jpg",
+      content: "와우",
+      nickname: "멘토1234",
+    },
+  ],
+};
 const Home = () => {
   const [popularCamps, setPopularCamps] = useState<ICamp[]>([]);
   const [saleCamps, setSaleCamps] = useState<ICamp[]>([]);
+  const [communities, setCommunities] = useState<ICommunity[]>([]);
 
   useEffect(() => {
     // TODO: 실서버 데이터로 변경
     setPopularCamps([campMock, campMock, campMock, campMock]);
     setSaleCamps([campMock, campMock, campMock, campMock]);
+    setCommunities([
+      communityMock,
+      communityMock,
+      communityMock,
+      communityMock,
+    ]);
   }, []);
   return (
     <Container>
       <Navigation />
       <HeaderSection />
-      <CampSection title="인기 부트 캠프" camps={popularCamps} />
-
-      <CampSection title="특가 할인 캠프" camps={saleCamps} isHeadField />
-
+      <main>
+        <CampSection title="인기 부트 캠프" camps={popularCamps} />
+        <Padding height="40px" />
+        <CampSection title="특가 할인 캠프" camps={saleCamps} isHeadField />
+        <Padding height="40px" />
+        <HomeBanner
+          text={`현직자와 소통하며 배우는\n실무 스킬, 퍼스널 트레이닝`}
+        />
+        <Padding height="55px" />
+        <CommunitySection title="커뮤니티" communities={communities} />
+        <Padding height="240px" />
+      </main>
       <Footer />
     </Container>
   );
@@ -42,4 +80,7 @@ export default Home;
 
 const Container = styled.div`
   margin: 0 auto;
+  main {
+    ${maxWidth};
+  }
 `;

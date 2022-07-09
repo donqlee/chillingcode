@@ -13,5 +13,11 @@ export interface ICommunity {
   tags: string[];
   title: string;
   content: string;
-  comments: { profile: string; nickname: string; content: string }[];
+  comments: IComment[];
+}
+
+export interface IComment {
+  profile: string;
+  nickname: string;
+  content: string;
 }

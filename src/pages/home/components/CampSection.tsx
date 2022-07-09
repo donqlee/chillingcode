@@ -3,7 +3,6 @@ import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 
 import fonts from "styles/fonts";
-import { maxWidth } from "styles/mixin";
 import { ICamp } from "types/type";
 
 interface IProps {
@@ -11,9 +10,9 @@ interface IProps {
   camps: ICamp[];
   isHeadField?: boolean;
 }
-export const CampSection = ({ title, camps, isHeadField = false }: IProps) => {
+const CampSection = ({ title, camps, isHeadField = false }: IProps) => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 480px)",
+    query: "(max-width: 680px)",
   });
 
   return (
@@ -28,9 +27,10 @@ export const CampSection = ({ title, camps, isHeadField = false }: IProps) => {
   );
 };
 
+export default CampSection;
+
 const Container = styled.section`
-  ${maxWidth}
-  padding: 0px 16px 40px;
+  padding: 0px 16px;
   .section-title {
     ${fonts.H1};
     padding-bottom: 8px;
