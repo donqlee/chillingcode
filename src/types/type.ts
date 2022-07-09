@@ -1,7 +1,8 @@
+export type CampType = "popular" | "sale";
 export interface ICamp {
   id: number;
   name: string;
-  type: string;
+  type: CampType;
   status: "ready" | "open" | "completed";
   field: string;
   skill: string;
