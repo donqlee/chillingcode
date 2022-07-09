@@ -19,7 +19,7 @@ const CommunitySection = ({ title, communities }: IProps) => {
   return isDesktop ? (
     <Container>
       <div className="section-title">{title}</div>
-      <div className="cards">
+      <div className="community-cards">
         {communities.map((community, index) => (
           <CommunityCard key={index} community={community} />
         ))}
@@ -36,8 +36,11 @@ const Container = styled.div`
     ${fonts.H1};
     padding-bottom: 16px;
   }
-  .cards {
+  .community-cards {
     display: flex;
     gap: 20px;
+    a {
+      flex: 1;
+    }
   }
 `;
