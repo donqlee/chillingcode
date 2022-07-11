@@ -25,6 +25,8 @@ const HeaderSection = () => {
   );
 };
 
+export default HeaderSection;
+
 const Container = styled.header<{ bgImg: string; isMobile: boolean }>`
   background-image: url(${(props) => props.bgImg});
   padding: 104px 16px 56px;
@@ -63,5 +65,3 @@ const Container = styled.header<{ bgImg: string; isMobile: boolean }>`
     height: ${(props) => (props.isMobile ? "150px" : "400px")};
   }
 `;
-
-export default HeaderSection;

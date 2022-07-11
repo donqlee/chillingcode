@@ -14,6 +14,8 @@ const Comment = ({ comment }: { comment: IComment }) => (
   </Container>
 );
 
+export default Comment;
+
 const Container = styled.div`
   display: flex;
   gap: 4px;
@@ -36,5 +38,3 @@ const Profile = styled.div<{ img: string }>`
   height: 30px;
   border-radius: 15px;
 `;
-
-export default Comment;

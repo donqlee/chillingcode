@@ -6,6 +6,8 @@ const HomeBanner = ({ text }: { text: string }) => {
   return <Container>{text}</Container>;
 };
 
+export default HomeBanner;
+
 const Container = styled.div`
   padding: 36px 42px;
   background-color: ${colors.primary1};
@@ -15,5 +17,3 @@ const Container = styled.div`
     white-space: pre-line;
   }
 `;
-
-export default HomeBanner;

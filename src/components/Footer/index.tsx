@@ -30,6 +30,8 @@ const Footer = () => {
   );
 };
 
+export default Footer;
+
 const Container = styled.div`
   padding: 32px;
   background-color: ${colors.gray6};
@@ -58,5 +60,3 @@ const Container = styled.div`
     }
   }
 `;
-
-export default Footer;

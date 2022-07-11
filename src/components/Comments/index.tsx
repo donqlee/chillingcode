@@ -10,6 +10,6 @@ const Comments = ({ comments }: { comments: IComment[] }) => (
   </Container>
 );
 
-const Container = styled.div``;
-
 export default Comments;
+
+const Container = styled.div``;
