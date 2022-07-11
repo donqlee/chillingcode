@@ -2,17 +2,23 @@ import styled from "styled-components";
 import fonts from "styles/fonts";
 import { IComment } from "types/type";
 
-const Comment = ({ comment }: { comment: IComment }) => (
-  <Container>
-    <div>
-      <Profile img={comment.profile} />
-    </div>
-    <div>
-      <div className="comment-nickname">{comment.nickname}</div>
-      <div className="comment-content">{comment.content}</div>
-    </div>
-  </Container>
-);
+const Comment = ({ comment }: { comment: IComment }) => {
+  const content =
+    comment.content.length > 12
+      ? `${comment.content.substring(0, 12)}...`
+      : comment.content;
+  return (
+    <Container>
+      <div>
+        <Profile img={comment.profile} />
+      </div>
+      <div>
+        <div className="comment-nickname">{comment.nickname}</div>
+        <div className="comment-content">{content}</div>
+      </div>
+    </Container>
+  );
+};
 
 export default Comment;
 
