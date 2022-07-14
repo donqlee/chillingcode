@@ -33,6 +33,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 export default function Skeleton(props: Props) {
   const { animated = false, ...restProps } = props;
+  console.log({ ...restProps });
 
   return <Container {...restProps} animated={animated} />;
 }
