@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Navigation, Footer, Padding } from "components";
+import { Navigation, Footer, Padding, CardSectionSkeleton } from "components";
 import {
   CampSection,
   HeaderSection,
@@ -14,9 +14,9 @@ import { getCampsByType } from "apis/campApi";
 import { getCommunties } from "apis/communityApi";
 
 const Home = () => {
-  const [popularCamps, setPopularCamps] = useState<ICamp[]>([]);
-  const [saleCamps, setSaleCamps] = useState<ICamp[]>([]);
-  const [communities, setCommunities] = useState<ICommunity[]>([]);
+  const [popularCamps, setPopularCamps] = useState<ICamp[]>();
+  const [saleCamps, setSaleCamps] = useState<ICamp[]>();
+  const [communities, setCommunities] = useState<ICommunity[]>();
 
   useEffect(() => {
     fetchCamps("popular");
@@ -36,15 +36,27 @@ const Home = () => {
       <Navigation />
       <HeaderSection />
       <main>
-        <CampSection title="인기 부트 캠프" camps={popularCamps} />
+        {popularCamps ? (
+          <CampSection title="인기 부트 캠프" camps={popularCamps} />
+        ) : (
+          <CardSectionSkeleton />
+        )}
         <Padding height="40px" />
-        <CampSection title="특가 할인 캠프" camps={saleCamps} isHeadField />
+        {saleCamps ? (
+          <CampSection title="특가 할인 캠프" camps={saleCamps} isHeadField />
+        ) : (
+          <CardSectionSkeleton />
+        )}
         <Padding height="40px" />
         <HomeBanner
           text={`현직자와 소통하며 배우는\n실무 스킬, 퍼스널 트레이닝`}
         />
         <Padding height="55px" />
-        <CommunitySection title="커뮤니티" communities={communities} />
+        {communities ? (
+          <CommunitySection title="커뮤니티" communities={communities} />
+        ) : (
+          <CardSectionSkeleton />
+        )}
         <Padding height="240px" />
       </main>
       <Footer />
